@@ -4,12 +4,12 @@ import { HydratedDocument } from 'mongoose';
 
 export type ConnectionDocument = HydratedDocument<Connection>;
 
-@Schema()
+@Schema({ collection: 'connection_info' })
 export class Connection {
   @Prop({ type: UUID, auto: true, default: new UUID().toBinary() })
   _id: UUID;
 
-  @Prop()
+  @Prop({ unique: true })
   ID: number;
 
   @Prop()

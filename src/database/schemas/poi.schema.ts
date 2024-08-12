@@ -4,15 +4,16 @@ import { AddressInfo } from './address-info.schema';
 import { Connection } from './connection-info.schema';
 import { Type } from 'class-transformer';
 import { UUID } from 'bson';
+import { UserComment } from './user-comments.schema';
 
 export type POIDocument = HydratedDocument<POI>;
 
-@Schema()
+@Schema({ collection: 'points-of-interest' })
 export class POI {
   @Prop({ type: UUID, auto: true, default: new UUID().toBinary() })
   _id: UUID;
 
-  @Prop()
+  @Prop({ unique: true })
   ID: number;
 
   @Prop()
@@ -86,8 +87,9 @@ export class POI {
   )
   SubmissionStatus: Record<string, any>;
 
-  @Prop()
-  UserComments: string;
+  @Prop({ type: [{ type: Types.UUID, ref: UserComment.name }] })
+  @Type(() => UserComment)
+  UserComments: UUID[];
 
   @Prop()
   PercentageSimilarity: number;

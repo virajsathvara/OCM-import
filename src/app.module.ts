@@ -5,12 +5,14 @@ import { PointsOfInterestModule } from './points-of-interest/points-of-interest.
 import { DatabaseModule } from './database/database.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Schemas } from './database/schemas';
+import { OCMLoggerModule } from '../libs/logger/src';
 
 @Module({
   imports: [
     PointsOfInterestModule,
     DatabaseModule,
     MongooseModule.forFeature(Schemas),
+    OCMLoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

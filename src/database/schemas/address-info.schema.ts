@@ -4,12 +4,12 @@ import { HydratedDocument } from 'mongoose';
 
 export type AddressInfoDocument = HydratedDocument<AddressInfo>;
 
-@Schema()
+@Schema({ collection: 'address_info' })
 export class AddressInfo {
   @Prop({ type: UUID, auto: true, default: new UUID().toBinary() })
   _id: UUID;
 
-  @Prop()
+  @Prop({ unique: true })
   ID: number;
 
   @Prop()

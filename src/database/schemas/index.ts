@@ -3,6 +3,7 @@ import { AddressInfo, AddressInfoSchema } from './address-info.schema';
 import { Cat, CatSchema } from './cat.schema';
 import { ConnectionSchema } from './connection-info.schema';
 import { POI, POISchema } from './poi.schema';
+import { UserComment, UserCommentSchema } from './user-comments.schema';
 
 export const Schemas = [
   {
@@ -20,5 +21,9 @@ export const Schemas = [
   {
     name: POI.name,
     schema: POISchema,
+  },
+  {
+    name: UserComment.name,
+    schema: UserCommentSchema,
   },
 ];

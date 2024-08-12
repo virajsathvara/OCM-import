@@ -1,4 +1,5 @@
-import { IAddressInfo } from './addressInfo.interface';
+import { UserComment } from '../schemas/user-comments.schema';
+import { IAddressInfo } from './address-info.interface';
 import { IConnectionInfo } from './connection-info.interface';
 
 export interface IPOI extends Document {
@@ -55,7 +56,7 @@ export interface IPOI extends Document {
     ID: number;
     Title: string;
   };
-  UserComments: string;
+  UserComments: UserComment[];
   PercentageSimilarity: number;
   MediaItems: string;
   IsRecentlyVerified: boolean;
